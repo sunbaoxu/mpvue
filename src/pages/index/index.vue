@@ -2,15 +2,17 @@
   <section class="home-wrap">
     <ul>
       <li v-for="(m,i) in arr" :key="i" class="g-border">
-        <dl class="g-dis">
-          <dt>
-            <image class="g-back" :src="m.imgUrl" ></image>
-          </dt>
-          <dd class="g-col-fen">
-            <h6>{{m.title}}</h6>
-            <p>{{m.time}}</p>
-          </dd>
-        </dl>
+        <navigator :url="m.path" class="list-box">
+          <dl class="g-dis">
+            <dt>
+              <image class="g-back" :src="m.imgUrl" ></image>
+            </dt>
+            <dd class="g-col-fen">
+              <h6>{{m.title}}</h6>
+              <p>{{m.time}}</p>
+            </dd>
+          </dl>
+        </navigator>
       </li>
     </ul>
   </section>
@@ -24,7 +26,8 @@ export default {
         {
           title:'动物园+海洋馆',
           time:'10月1日',
-          imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/hyg.jpg'
+          imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/hyg.jpg',
+          path:'/pages/animal/main'
         },
         {
           title:'颐和园+鸟巢+水立方',
@@ -73,6 +76,9 @@ export default {
   ul{
     li{
       height: 90px;
+      .list-box{
+        height: 100%;
+      }
       dl{
         height: 100%;
         dt{
