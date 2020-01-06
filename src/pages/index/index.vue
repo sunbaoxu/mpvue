@@ -26,48 +26,60 @@ export default {
         {
           title:'动物园+海洋馆',
           time:'10月1日',
-          imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/hyg.jpg',
+          // imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/hyg.jpg',
           path:'/pages/animal/main'
         },
         {
           title:'颐和园+鸟巢+水立方',
           time:'10月2日',
-          imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/yhy.jpg'
+          // imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/yhy.jpg'
         },
         {
           title:'恭王府+北海公园+什刹海',
           time:'10月3日',
-          imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/gwf.jpg'
+          // imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/gwf.jpg'
         },
         {
           title:'天安门+故宫',
           time:'10月4日',
-          imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/tam.jpg'
+          // imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/tam.jpg'
         },
         {
           title:'长城+十三陵',
           time:'10月5日',
-          imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/cc.jpg'
+          // imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/cc.jpg'
         },
         {
           title:'大鸭梨+电影',
           time:'10月6日',
-          imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/dyl.jpg'
+          // imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/dyl.jpg'
         },
         {
           title:'坐飞机回家',
           time:'10月7日',
-          imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/fj.jpg'
+          // imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/fj.jpg'
         }
       ]
     }
   },
   methods: {
     showToast () {
+    },
+    aaa (){
+      wx.request({  // 获取ip
+        url: 'http://ip-api.com/json',
+        success: function (e) {
+          console.log(e,'aaa')
+          // that.setData({
+          //   motto: e.data
+          // })
+        }
+      })
     }
   },
   mounted (){
-
+    this.aaa()
+    // console.log('aaa')
   }
 }
 </script>
