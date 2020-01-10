@@ -10,25 +10,91 @@ export default {
      * 支付宝(蚂蚁)：mpvue === my, mpvuePlatform === 'my'
      */
 
-    let logs
-    if (mpvuePlatform === 'my') {
-      logs = mpvue.getStorageSync({key: 'logs'}).data || []
-      logs.unshift(Date.now())
-      mpvue.setStorageSync({
-        key: 'logs',
-        data: logs
-      })
-    } else {
-      logs = mpvue.getStorageSync('logs') || []
-      logs.unshift(Date.now())
-      mpvue.setStorageSync('logs', logs)
-    }
-  },
-  log () {
-    console.log(`log at:${Date.now()}`)
-  }
+    // let logs
+    // if (mpvuePlatform === 'my') {
+    //   logs = mpvue.getStorageSync({key: 'logs'}).data || []
+    //   logs.unshift(Date.now())
+    //   mpvue.setStorageSync({
+    //     key: 'logs',
+    //     data: logs
+    //   })
+    // } else {
+    //   logs = mpvue.getStorageSync('logs') || []
+    //   logs.unshift(Date.now())
+    //   mpvue.setStorageSync('logs', logs)
+    // }
 
-  
+    // 主要是为了获取code
+    // wx.login({
+    //   success (res) {
+    //     if (res.code) {
+    //       // 封装的缓存方法
+    //       console.log('登录成功')
+    //       // that.$wxhttp.cache('code', res.code)
+    //     } else {
+    //       console.log('登录失败！' + res.errMsg)
+    //     }
+    //   }
+    // })
+    // wx.openSetting({
+    //   success (res) {
+    //     console.log(res,'aaa')
+    //     if (res.authSetting['scope.userInfo']) {
+    //       // wx.getUserInfo({
+    //       //   success: function (res) {
+    //       //   // 如果用户已经授权则会调用该方法
+    //       //   console.log('用户已授权')
+    //       //     // that.$wxhttp.authSuccessReq(res)
+    //       //   }
+    //       // })
+    //     } else {
+    //       console.error('用户没有授权')
+    //     }
+    //   }
+    // })
+    // 获取用户的当前设置。本项目里判断用户是否已授权登录
+    wx.getSetting({
+      success (res) {
+        console.log(res,'aaa')
+        if (res.authSetting['scope.userInfo']) {
+          console.log('用户已授权，去首页')
+          wx.switchTab({
+            url: '/pages/home/index/main'
+          })
+        } else {
+          console.error('用户没有授权')
+        }
+      }
+    })
+
+    // 从后台获取openid等参数信息
+    // function authSuccessReq (data) {
+    //   return new Promise((resolve, reject) => {
+    //     if (!wx.getStorageSync('userInfo').openid) {
+    //       wx.request({
+    //         url:'',
+    //         method: 'POST',
+    //         data: {
+    //           encryptedData: data.encryptedData,
+    //           code: wx.getStorageSync('code'),
+    //           iv: data.iv,
+    //         },
+    //         success: function (info) {
+    //           let userInfo = data.userInfo
+    //           resolve(userInfo)
+    //         },
+    //         fail (res) {
+    //           reject(res)
+    //         }
+    //       })
+    //     } else {
+    //       resolve(wx.getStorageSync('userInfo'))
+    //     }
+    //   })
+    // }
+
+
+  }
 }
 </script>
 

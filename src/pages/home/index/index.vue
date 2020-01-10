@@ -78,7 +78,7 @@ export default {
     }
   },
   mounted (){
-    this.aaa()
+    // this.aaa()
     // console.log('aaa')
   }
 }
