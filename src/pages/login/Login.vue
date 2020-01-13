@@ -20,7 +20,7 @@ export default {
         console.log(e.mp.detail)
         let { encryptedData, userInfo, iv } = e.mp.detail;
         wx.switchTab({
-          url: '/pages/home/index/main'
+          url: '/pages/home/main'
         })
       } else {
         //用户按了拒绝按钮
