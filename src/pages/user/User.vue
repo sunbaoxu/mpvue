@@ -1,46 +1,52 @@
 <template>
-  <section class="user-wrap">
-    <header class="user-header">
-      <dl>
-        <dt class="g-back-box">
-          <image src="https://tsfile.labifenqi.com/dm_xcx/user/user.png"></image>
-        </dt>
-        <dd>
-          <h6>1412312312123</h6>
-          <p>普通用dfsad户dfdsfadf</p>
-        </dd>
-      </dl>
-    </header>
-    <section class="user-main">
-      <section class="user-main-box g-dis">
-        <navigator url="/pages/video/main" class="list g-col-cen-cen-box">
-          <i></i>
-          <span>帖子</span>
-        </navigator>
-        <navigator url="/pages/video/main" class="list g-col-cen-cen-box">
-          <i></i>
-          <span>日记</span>
-        </navigator>
-        <navigator url="/pages/video/main" class="list g-col-cen-cen-box">
-          <i></i>
-          <span>头条</span>
-        </navigator>
-        <navigator url="/pages/video/main" class="list g-col-cen-cen-box">
-          <i></i>
-          <span>收藏</span>
-        </navigator>
+  <tab-bar :async="true">
+    <section class="user-wrap">
+      <header class="user-header">
+        <dl>
+          <dt class="g-back-box">
+            <image src="https://tsfile.labifenqi.com/dm_xcx/user/user.png"></image>
+          </dt>
+          <dd>
+            <h6>1412312312123</h6>
+            <p>普通用dfsad户dfdsfadf</p>
+          </dd>
+        </dl>
+      </header>
+      <section class="user-main">
+        <section class="user-main-box g-dis">
+          <navigator url="/pages/video/main" class="list g-col-cen-cen-box">
+            <i></i>
+            <span>帖子</span>
+          </navigator>
+          <navigator url="/pages/video/main" class="list g-col-cen-cen-box">
+            <i></i>
+            <span>日记</span>
+          </navigator>
+          <navigator url="/pages/video/main" class="list g-col-cen-cen-box">
+            <i></i>
+            <span>头条</span>
+          </navigator>
+          <navigator url="/pages/video/main" class="list g-col-cen-cen-box">
+            <i></i>
+            <span>收藏</span>
+          </navigator>
+        </section>
+      </section>
+      <section class="user-list">
+        <navigator url="/pages/video/main" class="list">我的草稿</navigator>
+        <navigator url="/pages/video/main" class="list">推荐给好友</navigator>
+        <navigator url="/pages/video/main" class="list">帮助与反馈</navigator>
       </section>
     </section>
-    <section class="user-list">
-      <navigator url="/pages/video/main" class="list">我的草稿</navigator>
-      <navigator url="/pages/video/main" class="list">推荐给好友</navigator>
-      <navigator url="/pages/video/main" class="list">帮助与反馈</navigator>
-    </section>
-  </section>
+  </tab-bar>
 </template>
 
 <script>
+import TabBar from '$common/tab/TabBar'
 export default {
+  components:{
+    TabBar
+  },
   data() {
     return {
       url: "https://www.iqiyi.com/v_19rsho7kz8.html?src=focustext_1_20130410_1",

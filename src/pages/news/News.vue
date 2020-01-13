@@ -1,5 +1,4 @@
 <template>
-  
   <tab-bar :async="true">
     <section class="home-wrap">
      xioaxi

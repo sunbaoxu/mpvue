@@ -3,22 +3,19 @@
     <!-- 头部 -->
     <header
       class="c-header-wrap"
-      :style="'padding-top:'+data.statusBarHeight+data.titleBarHeight+'px'"
+      :style="'padding-top:'+(data.statusBarHeight+data.titleBarHeight)+'px'"
     >
       <section class="hh-header">
         <section class="status-bar" :style="{height:data.statusBarHeight+'px'}"></section>
         <section class="title-bar" :style="'height:'+data.titleBarHeight+'px'">
-          <view v-if="isShowBack == '1' && userImg" class="hh-nav-back" @click="userInfoFn">
-            <!-- <text class="hh-nav-img" style="background-image:url({{userImg}})"></text> -->
+          <view v-if="isShowBack == '1'" class="hh-nav-back" @click="userInfoFn">
+            <i
+              class="hh-nav-img"
+              style="background-image:url(https://tsfile.labifenqi.com/dm_xcx/tab/home.png)"
+            ></i>
           </view>
           <view v-else-if="isShowBack == '2'" class="hh-nav-back" @click="navback">
-            <text
-              class="hh-nav-icon"
-            ></text>
-            <!-- 
-              style="background-image:url({{imgUrl+'chating/arrowblack.png'}})"
-
-             -->
+            <text class="hh-nav-icon"></text>
           </view>
           <view wx:else class="hh-nav-back"></view>
           <view class="hh-title">{{title}}</view>
@@ -56,9 +53,9 @@ export default {
   },
   data() {
     return {
-      userImg:"",
-      isShowBack:'1',
-      title:"大师傅",
+      userImg: "",
+      isShowBack: "1",
+      title: "大师傅",
       data: {},
       arr: [
         {
@@ -95,16 +92,12 @@ export default {
   },
   methods: {
     tabBarFn(obj) {
-      wx.redirectTo({
+      wx.switchTab({
         url: obj.pagePath
       });
     },
-    userInfoFn (){
-
-    },
-    navback (){
-
-    }
+    userInfoFn() {},
+    navback() {}
   },
   mounted() {
     let _this = this;
@@ -131,95 +124,89 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-// .tab-bar-wrap{
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-// }
-.c-tabar-warp {
-  height: 48px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  border-top: 1px solid #ccc;
-  background-color: #fff;
-  z-index: 99;
-  background: red;
-}
-.c-tabar-warp .list {
-  width: 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+.tab-bar-wrap {
+  .c-tabar-warp {
+    height: 48px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 99;
+    background: red;
+    .list {
+      width: 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .icon {
+        width: 20px;
+        height: 20px;
+        margin-bottom: 2px;
+      }
+      .text {
+        font-size: 12px;
+        color: #8f8f8f;
+      }
+    }
+  }
+  .ico-back {
+    width: 18px;
+    height: 18px;
+  }
 
-.list .icon {
-  width: 20px;
-  height: 20px;
-  margin-bottom: 2px;
-}
-.list .text {
-  font-size: 12px;
-  color: #8f8f8f;
-}
+  .hh-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 99;
+    left: 0;
+    background: red;
+  }
 
-.ico-back {
-  width: 18px;
-  height: 18px;
-}
-
-
-.hh-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #fff;
-  z-index: 99;
-  left: 0;
-  background: red;
-}
-
-.hh-title {
-  font-size: 18px;
-  text-align: center;
-  color: #000;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.title-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.hh-nav-right {
-  width: 58px;
-}
-.hh-nav-back {
-  width: 58px;
-}
-.hh-nav-img {
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-  display: block;
-  margin-left: 10px;
-}
-.hh-nav-icon {
-  width: 10.5px;
-  height: 18px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-  margin-left: 17px;
-  display: block;
+  .hh-title {
+    font-size: 18px;
+    text-align: center;
+    color: #000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hh-nav-right {
+    width: 58px;
+  }
+  .hh-nav-back {
+    width: 58px;
+  }
+  .hh-nav-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    display: block;
+    margin-left: 10px;
+  }
+  .hh-nav-icon {
+    width: 10.5px;
+    height: 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    margin-left: 17px;
+    display: block;
+  }
 }
 </style>
 
