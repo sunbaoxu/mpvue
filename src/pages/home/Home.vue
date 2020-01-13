@@ -1,44 +1,50 @@
 <template>
-  <section class="home-wrap">
-    <section class="banner-box">
+  <tab-bar :async="true">
+    <section class="home-wrap">
+      <section class="banner-box">
 
+      </section>
+      <section class="nav-box">
+        <dl>
+          <dt></dt>
+          <dd>
+            <h6>试管百科</h6>
+            <p>试管知识，全面科普</p>
+          </dd>
+        </dl>
+        <dl>
+          <dt></dt>
+          <dd>
+            <h6>话题广场</h6>
+            <p>海量话题，等你来聊</p>
+          </dd>
+        </dl>
+      </section>
+      <ul>
+        <li v-for="(m,i) in arr" :key="i" class="g-border">
+          <navigator :url="m.path" class="list-box">
+            <dl>
+              <dd class="g-col-fen">
+                <h6>{{m.title}}</h6>
+                <p>{{m.time}}</p>
+              </dd>
+              <dt>
+                <image class="g-back" :src="m.imgUrl" ></image>
+              </dt>
+            </dl>
+          </navigator>
+        </li>
+      </ul>
     </section>
-    <section class="nav-box">
-      <dl>
-        <dt></dt>
-        <dd>
-          <h6>试管百科</h6>
-          <p>试管知识，全面科普</p>
-        </dd>
-      </dl>
-      <dl>
-        <dt></dt>
-        <dd>
-          <h6>话题广场</h6>
-          <p>海量话题，等你来聊</p>
-        </dd>
-      </dl>
-    </section>
-    <ul>
-      <li v-for="(m,i) in arr" :key="i" class="g-border">
-        <navigator :url="m.path" class="list-box">
-          <dl>
-            <dd class="g-col-fen">
-              <h6>{{m.title}}</h6>
-              <p>{{m.time}}</p>
-            </dd>
-            <dt>
-              <image class="g-back" :src="m.imgUrl" ></image>
-            </dt>
-          </dl>
-        </navigator>
-      </li>
-    </ul>
-  </section>
+  </tab-bar>
 </template>
 
 <script>
+import TabBar from '$common/tab/TabBar'
 export default {
+  components:{
+    TabBar
+  },
   data () {
     return {
       arr:[
