@@ -1,15 +1,15 @@
 {
   "pages": [
-    "pages/login/main",
+    "pages/user/main",
     "pages/home/main",
+    "pages/login/main",
     "pages/animal/main",
-    "pages/video/main",
-    "pages/user/main"
+    "pages/video/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "国庆七日游",
+    "navigationBarTitleText": "多美头条",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -21,7 +21,19 @@
         "selectedIconPath":"/static/tabs/home-active.png"
       },
       {
-        "text": "订单",
+        "text": "圈子",
+        "pagePath":"pages/home/main",
+        "iconPath":"/static/tabs/orders.png",
+        "selectedIconPath":"/static/tabs/orders-active.png"
+      },
+      {
+        "text": "的",
+        "pagePath":"pages/home/main",
+        "iconPath":"/static/tabs/orders.png",
+        "selectedIconPath":"/static/tabs/orders-active.png"
+      },
+      {
+        "text": "消息",
         "pagePath":"pages/home/main",
         "iconPath":"/static/tabs/orders.png",
         "selectedIconPath":"/static/tabs/orders-active.png"
