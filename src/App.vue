@@ -58,9 +58,9 @@ export default {
         console.log(res,'aaa')
         if (res.authSetting['scope.userInfo']) {
           console.log('用户已授权，去首页')
-          wx.switchTab({
-            url: '/pages/home/main'
-          })
+          // wx.switchTab({
+          //   url: '/pages/home/main'
+          // })
         } else {
           console.error('用户没有授权')
         }

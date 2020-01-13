@@ -18,31 +18,30 @@
         "text": "首页",
         "pagePath":"pages/home/main",
         "iconPath":"/static/tabs/home.png",
-        "selectedIconPath":"/static/tabs/home-active.png"
+        "selectedIconPath":"/static/tabs/home1.png"
       },
       {
         "text": "圈子",
         "pagePath":"pages/home/main",
-        "iconPath":"/static/tabs/orders.png",
-        "selectedIconPath":"/static/tabs/orders-active.png"
+        "iconPath":"/static/tabs/update.png",
+        "selectedIconPath":"/static/tabs/update1.png"
       },
       {
-        "text": "的",
         "pagePath":"pages/home/main",
-        "iconPath":"/static/tabs/orders.png",
-        "selectedIconPath":"/static/tabs/orders-active.png"
+        "iconPath":"/static/tabs/add.png",
+        "selectedIconPath":"/static/tabs/add.png"
       },
       {
         "text": "消息",
         "pagePath":"pages/home/main",
-        "iconPath":"/static/tabs/orders.png",
-        "selectedIconPath":"/static/tabs/orders-active.png"
+        "iconPath":"/static/tabs/news.png",
+        "selectedIconPath":"/static/tabs/news1.png"
       },
       {
         "text": "我的",
         "pagePath":"pages/user/main",
-        "iconPath":"/static/tabs/orders.png",
-        "selectedIconPath":"/static/tabs/orders-active.png"
+        "iconPath":"/static/tabs/user.png",
+        "selectedIconPath":"/static/tabs/user1.png"
       }
     ]
   }
