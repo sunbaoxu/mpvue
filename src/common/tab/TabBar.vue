@@ -45,6 +45,10 @@ export default {
     async: {
       type: Boolean,
       default: false
+    },
+    title :{
+      type:String,
+      default:'多美'
     }
   },
   data() {
@@ -52,7 +56,6 @@ export default {
       userImg: "",
       isShowBack: "1",
       pagePath:"",
-      title: "大师傅",
       data: {},
       arr: [
         {

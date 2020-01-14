@@ -1,7 +1,12 @@
 <template>
-  <tab-bar :async="true" title="消息">
-    <section class="home-wrap">
-     xioaxi
+  <tab-bar title="个人主页">
+    <section class="user-page-wrap">
+      <ul>
+        <li>
+          <span></span>
+          <span></span>
+        </li>
+      </ul>
     </section>
   </tab-bar>
 </template>

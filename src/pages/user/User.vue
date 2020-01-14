@@ -1,5 +1,5 @@
 <template>
-  <tab-bar :async="true">
+  <tab-bar :async="true" title="我的">
     <section class="user-wrap">
       <header class="user-header">
         <dl class="g-cen-y">
@@ -15,7 +15,7 @@
               <span class="g-cen-y">关注&nbsp;<b>10</b></span>
               <span class="g-cen-y">粉丝&nbsp;<b>15</b></span>
             </div>
-            <p>个人主页</p>
+            <p @click="userPageFn">个人主页</p>
           </dd>
         </dl>
         <section class="nav-box g-dis">
@@ -120,6 +120,12 @@ export default {
           // })
         }
       });
+    },
+    //跳转个人主页
+    userPageFn (){
+      wx.navigateTo({
+        url:'/pages/user/userPage/main'
+      })
     }
   },
   mounted() {

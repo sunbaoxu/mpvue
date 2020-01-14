@@ -1,5 +1,5 @@
 <template>
-  <tab-bar :async="true">
+  <tab-bar :async="true" title="多美">
     <section class="home-wrap">
       <section class="banner-box">
 
