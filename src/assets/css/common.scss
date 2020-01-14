@@ -18,8 +18,8 @@ $col-red1:#FF6869;
 $col-ori:#F57629;
 $col-yell:#FFC000;
 $col-yell2:#F7F5B7;
-
-
+$col-green:#68B273;
+$col-green1:#E1F0E3;
 
 
 // input{background: transparent;border: 0;}
@@ -58,7 +58,7 @@ textarea::-moz-placeholder{color:$col-9}
 }
 
 .body-back-f{
-  background: $col-f;
+  background: #F6F7F8;
 }
 .body-back-gray{
 	background: #5a5a5a;
@@ -87,15 +87,8 @@ textarea::-moz-placeholder{color:$col-9}
 
 .g-text-ove2{display: -webkit-box;-webkit-box-orient: vertical; -webkit-line-clamp: 2;overflow: hidden;word-break: break-all;}
 .g-text-ove1{overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
-.g-back{
-	display: block;
-	position: absolute;
-	left :50%;
-	top:50%;
-	transform: translate(-50%,-50%);
-	width: 100%;
-	height: 100%;
-}
+.g-back{background-position: center center;background-repeat: no-repeat;background-size:100%;}
+.g-back-cover{@extend .g-back;background-size:cover;}
 
 .g-dis{display: flex;}
 .g-col{@extend .g-dis;flex-direction: column;}//纵向

@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/user/main",
     "pages/news/main",
     "pages/add/main",
-    "pages/user/main",
     "pages/home/main",
     "pages/login/main",
     "pages/animal/main",

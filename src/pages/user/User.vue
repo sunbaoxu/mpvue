@@ -2,40 +2,72 @@
   <tab-bar :async="true">
     <section class="user-wrap">
       <header class="user-header">
-        <dl>
+        <dl class="g-cen-y">
           <dt class="g-back-box">
             <image src="https://tsfile.labifenqi.com/dm_xcx/user/user.png"></image>
           </dt>
           <dd>
-            <h6>1412312312123</h6>
-            <p>普通用dfsad户dfdsfadf</p>
+            <h6 class="g-cen-y">
+              <span class="g-text-ove1">sfa放少</span>
+              <i class="g-cen-y"></i>
+            </h6>
+            <div class="g-cen-y">
+              <span class="g-cen-y">关注&nbsp;<b>10</b></span>
+              <span class="g-cen-y">粉丝&nbsp;<b>15</b></span>
+            </div>
+            <p>个人主页</p>
           </dd>
         </dl>
-      </header>
-      <section class="user-main">
-        <section class="user-main-box g-dis">
+        <section class="nav-box g-dis">
           <navigator url="/pages/video/main" class="list g-col-cen-cen-box">
-            <i></i>
+            <i class="tiezi g-back"></i>
             <span>帖子</span>
           </navigator>
           <navigator url="/pages/video/main" class="list g-col-cen-cen-box">
-            <i></i>
+            <i class="riji g-back"></i>
             <span>日记</span>
           </navigator>
           <navigator url="/pages/video/main" class="list g-col-cen-cen-box">
-            <i></i>
+            <i class="toutiao g-back"></i>
             <span>头条</span>
           </navigator>
           <navigator url="/pages/video/main" class="list g-col-cen-cen-box">
-            <i></i>
+            <i class="shoucang g-back"></i>
             <span>收藏</span>
           </navigator>
         </section>
+      </header>
+      <section class="user-main">
+        
       </section>
       <section class="user-list">
-        <navigator url="/pages/video/main" class="list">我的草稿</navigator>
-        <navigator url="/pages/video/main" class="list">推荐给好友</navigator>
-        <navigator url="/pages/video/main" class="list">帮助与反馈</navigator>
+        <navigator url="/pages/video/main" class="list">
+          <dl class="g-cen-y">
+            <dt class="g-back caogao"></dt>
+            <dd class="g-fen-cen g-border">
+              <span>我的草稿</span>
+              <i class="g-back"></i>
+            </dd>
+          </dl>
+        </navigator>
+        <navigator url="/pages/video/main" class="list">
+          <dl class="g-cen-y">
+            <dt class="g-back haoyou"></dt>
+            <dd class="g-fen-cen g-border">
+              <span>推荐给好友</span>
+              <i class="g-back"></i>
+            </dd>
+          </dl>
+        </navigator>
+        <navigator url="/pages/video/main" class="list">
+          <dl class="g-cen-y">
+            <dt class="g-back bangzhu"></dt>
+            <dd class="g-fen-cen">
+              <span>帮助与反馈</span>
+              <i class="g-back"></i>
+            </dd>
+          </dl>
+        </navigator>
       </section>
     </section>
   </tab-bar>
@@ -99,47 +131,128 @@ export default {
 <style lang="scss" scoped>
 .user-wrap {
   .user-header {
-    padding: 0 15px;
+    height: 174px;
+    margin-bottom: 11px;
+    background-color: $col-f;
     dl {
-      display: flex;
-      align-items: center;
-      height: 140px;
+      padding:8px 0 8px 15px;
+      height: 60px;
       dt {
-        height: 60px;
         width: 60px;
+        height: 100%;
         border-radius: 100%;
         margin-right: 15px;
       }
       dd {
-        p {
-          font-size: 14px;
+        height: 100%;
+        width: 0;
+        flex: 1;
+        position: relative;
+        padding-right: 100px;
+        h6{
+          font-size: 21px;
+          color: $col-3;
+          line-height: 39px;
+          span{
+            max-width: 160px;
+          }
+          i{
+            flex:1;
+            &::after{
+              content: "";
+              width: 7px;
+              height: 12px;
+              background: url('https://tsfile.labifenqi.com/dm_xcx/icon/jiao.png') no-repeat center;
+              background-size: cover;
+              margin-left: 13px;
+            }
+          }
+        }
+        div{
+          line-height: 23px;
+          span{
+            font-size: 13px;
+            margin-right: 20px;
+          }
+        }
+        p{
+          position: absolute;
+          right: 0;
+          top: 13.5px;
+          height: 25px;
+          font-size: 13px;
+          color: $col-green;
+          line-height: 25px;
+          padding:0 13.5px 0 11px;
+          border-radius: 12.5px 0 0 12.5px;
+          background-color: $col-green1;
         }
       }
     }
-  }
-  .user-main {
-    margin-bottom: 20px;
-    padding: 0 10px;
-    .user-main-box{
-      background: #ececec;
-      border-radius: 4px;
-      height: 60px;
-      .list {
+    .nav-box{
+      padding:30px 15px 8px;
+      .list{
         width: 0;
         flex: 1;
+        i{
+          width: 25px;
+          height: 25px;
+          &.tiezi{
+            background-image: url('https://tsfile.labifenqi.com/dm_xcx/user/tiezi.png') ;
+          }
+          &.riji{
+            background-image: url('https://tsfile.labifenqi.com/dm_xcx/user/riji.png') ;
+          }
+          &.toutiao{
+            background-image: url('https://tsfile.labifenqi.com/dm_xcx/user/toutiao.png') ;
+          }
+          &.shoucang{
+            background-image: url('https://tsfile.labifenqi.com/dm_xcx/user/shoucang.png') ;
+          }
+        }
         span{
           font-size: 14px;
+          line-height: 35px;
+          color:$col-3;
         }
       }
     }
   }
   .user-list {
-    li,
-    .list {
-      height: 46px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #eaeaea;
+    background-color: $col-f;
+    li,.list {
+      height: 55px;
       padding: 0 15px;
+      dl{
+        height: 100%;
+        width: 100%;
+        padding-left: 15px;
+        dt{
+          width: 25px;
+          height: 25px;
+          margin-right: 23px;
+          &.caogao{
+            background-image: url('https://tsfile.labifenqi.com/dm_xcx/user/caogao.png') ;
+          }
+          &.haoyou{
+            background-image: url('https://tsfile.labifenqi.com/dm_xcx/user/haoyou.png') ;
+          }
+          &.bangzhu{
+            background-image: url('https://tsfile.labifenqi.com/dm_xcx/user/bangzhu.png') ;
+          }
+        }
+        dd{
+          width: 0;
+          flex: 1;
+          height: 100%;
+          padding-right: 15px;
+          i{
+            width: 11.2px;
+            height: 19px;
+            background-image: url('https://tsfile.labifenqi.com/dm_xcx/icon/jiao.png');
+          }
+        }
+      }
     }
   }
 }
