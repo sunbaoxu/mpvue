@@ -2,6 +2,7 @@
 // import './custom-tab-bar'
 export default {
   created () {
+    wx.hideTabBar();
     // 调用API从本地缓存中获取数据
     /*
      * 平台 api 差异的处理方式:  api 方法统一挂载到 mpvue 名称空间, 平台判断通过 mpvuePlatform 特征字符串
@@ -64,6 +65,9 @@ export default {
           // })
         } else {
           console.error('用户没有授权')
+          wx.reLaunch({
+            url: '/pages/login/main'
+          })
         }
       }
     })

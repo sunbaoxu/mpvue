@@ -20,6 +20,8 @@ export default {
  
   },
   mounted (){
+    wx.hideTabBar();
+    // 
     // console.log(this.arr[0].api+this.url)
   }
 }
