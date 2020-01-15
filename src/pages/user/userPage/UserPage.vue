@@ -3,8 +3,8 @@
     <section class="user-page-wrap">
       <ul>
         <li class="g-border g-fen-cen">
-          <span class="label"></span>
-          <span class="value">多喝人数</span>
+          <span class="label icon g-back" :style="{'backgroundImage':'url('+userInfo.avatarUrl+')'}"></span>
+          <span class="value on">{{userInfo.nickName}}</span>
         </li>
         <li class="g-border g-fen-cen" @click="typeFn('stage')">
           <span class="label">试管阶段</span>
@@ -98,7 +98,8 @@ export default {
         stageObj:{},
         cityObj:{}
       },
-      indexArr:[]
+      indexArr:[],
+      userInfo:{}
     }
   },
   methods: {
@@ -136,7 +137,8 @@ export default {
     }
   },
   mounted (){
-    
+    this.userInfo = wx.getStorageSync('dm-user-obj');
+    console.log(this.userInfo)
   }
 }
 </script>
@@ -162,6 +164,10 @@ export default {
     .label{
       font-size: 16px;
       color: $col-3;
+      &.icon{
+        width: 30px;
+        height: 30px;
+      }
     }
     .value{
       color: $col-green;

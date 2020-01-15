@@ -31,7 +31,7 @@ export default {
       success (res) {
         if (res.code) {
           // 封装的缓存方法
-          console.log('登录成功')
+          console.log(res,'登录成功')
           // that.$wxhttp.cache('code', res.code)
         } else {
           console.log('登录失败！' + res.errMsg)

@@ -18,6 +18,7 @@ export default {
       if (e.mp.detail.userInfo) {
         console.log("用户按了允许授权按钮");
         console.log(e.mp.detail)
+        wx.setStorageSync('dm-user-obj',e.mp.detail.userInfo)
         let { encryptedData, userInfo, iv } = e.mp.detail;
         wx.switchTab({
           url: '/pages/home/main'

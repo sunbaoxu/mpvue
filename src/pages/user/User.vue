@@ -3,19 +3,17 @@
     <section class="user-wrap">
       <header class="user-header">
         <dl class="g-cen-y">
-          <dt class="g-back-box">
-            <image src="https://tsfile.labifenqi.com/dm_xcx/user/user.png"></image>
-          </dt>
+          <dt @click="userPageFn" class="g-back " :style="{'backgroundImage':'url('+userInfo.avatarUrl+')'}"></dt>
           <dd>
-            <h6 class="g-cen-y">
-              <span class="g-text-ove1">sfa放少</span>
+            <h6 class="g-cen-y" @click="userPageFn">
+              <span class="g-text-ove1">{{userInfo.nickName}}</span>
               <i class="g-cen-y"></i>
             </h6>
             <div class="g-cen-y">
-              <span class="g-cen-y">关注&nbsp;<b>10</b></span>
+              <span class="g-cen-y">关a注&nbsp;<b>10</b></span>
               <span class="g-cen-y">粉丝&nbsp;<b>15</b></span>
             </div>
-            <p @click="userPageFn">个人主页</p>
+            <p>个人主页</p>
           </dd>
         </dl>
         <section class="nav-box g-dis">
@@ -82,6 +80,7 @@ export default {
   data() {
     return {
       url: "https://www.iqiyi.com/v_19rsho7kz8.html?src=focustext_1_20130410_1",
+      userInfo:{},
       arr: [
         {
           id: "1",
@@ -130,8 +129,9 @@ export default {
   },
   mounted() {
     wx.hideTabBar();
+    this.userInfo = wx.getStorageSync('dm-user-obj');
     // this.aaa()
-    // console.log('aaa')
+    console.log(this.userInfo,'aaa')
   }
 };
 </script>
@@ -149,6 +149,7 @@ export default {
         height: 100%;
         border-radius: 100%;
         margin-right: 15px;
+        background-size: 112%;
       }
       dd {
         height: 100%;
