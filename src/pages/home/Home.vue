@@ -103,7 +103,7 @@ export default {
     }
   },
   mounted (){
-    // wx.hideTabBar();
+    wx.hideTabBar();
     // this.aaa()
     // console.log('aaa')
   }

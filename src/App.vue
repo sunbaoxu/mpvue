@@ -27,17 +27,17 @@ export default {
     // }
 
     // 主要是为了获取code
-    // wx.login({
-    //   success (res) {
-    //     if (res.code) {
-    //       // 封装的缓存方法
-    //       console.log('登录成功')
-    //       // that.$wxhttp.cache('code', res.code)
-    //     } else {
-    //       console.log('登录失败！' + res.errMsg)
-    //     }
-    //   }
-    // })
+    wx.login({
+      success (res) {
+        if (res.code) {
+          // 封装的缓存方法
+          console.log('登录成功')
+          // that.$wxhttp.cache('code', res.code)
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
     // wx.openSetting({
     //   success (res) {
     //     console.log(res,'aaa')
@@ -103,7 +103,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 /* .container {
   height: 100%;
   display: flex;
