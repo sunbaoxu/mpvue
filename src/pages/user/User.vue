@@ -1,11 +1,15 @@
 <template>
-  <tab-bar :async="true" title="我的">
+  <tab-bar :async="true" title="我的" isShowBack="1">
     <section class="user-wrap">
       <header class="user-header">
         <dl class="g-cen-y">
-          <dt @click="userPageFn" class="g-back " :style="{'backgroundImage':'url('+userInfo.avatarUrl+')'}"></dt>
+          <dt 
+            v-if="userInfo.avatarUrl" 
+            class="g-back " 
+            :style="'background-image:url('+userInfo.avatarUrl+')'"
+          ></dt>
           <dd>
-            <h6 class="g-cen-y" @click="userPageFn">
+            <h6 class="g-cen-y" @click.prevent="userDetailFn">
               <span class="g-text-ove1">{{userInfo.nickName}}</span>
               <i class="g-cen-y"></i>
             </h6>
@@ -79,31 +83,9 @@ export default {
   },
   data() {
     return {
-      url: "https://www.iqiyi.com/v_19rsho7kz8.html?src=focustext_1_20130410_1",
-      userInfo:{},
-      arr: [
-        {
-          id: "1",
-          value: "线路1",
-          api: "http://www.vipjiexi.com/yun.php?url="
-        },
-        {
-          id: "2",
-          value: "线路2",
-          api: "http://vip.jlsprh.com/index.php?url="
-        },
-        { id: "3", value: "线路3", api: "http://jiexi.071811.cc/jx.php?url=" },
-        {
-          id: "4",
-          value: "线路4",
-          api: "http://www.82190555.com/index/qqvod.php?url="
-        },
-        {
-          id: "5",
-          value: "线路5",
-          api: "http://jx.api.163ren.com/vod.php?url="
-        }
-      ]
+      userInfo:{
+        avatarUrl:'https://tsfile.labifenqi.com/dm_xcx/user/user.png'
+      }
     };
   },
   methods: {
@@ -121,7 +103,7 @@ export default {
       });
     },
     //跳转个人主页
-    userPageFn (){
+    userDetailFn (){
       wx.navigateTo({
         url:'/pages/user/userPage/main'
       })
@@ -130,8 +112,6 @@ export default {
   mounted() {
     wx.hideTabBar();
     this.userInfo = wx.getStorageSync('dm-user-obj');
-    // this.aaa()
-    console.log(this.userInfo,'aaa')
   }
 };
 </script>
@@ -144,12 +124,14 @@ export default {
     dl {
       padding:8px 0 8px 15px;
       height: 60px;
+      overflow: hidden;
       dt {
         width: 60px;
         height: 100%;
         border-radius: 100%;
         margin-right: 15px;
         background-size: 112%;
+        overflow: hidden;
       }
       dd {
         height: 100%;

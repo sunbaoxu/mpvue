@@ -1,5 +1,5 @@
 <template>
-  <tab-bar :async="true" title="消息">
+  <tab-bar :async="true" title="消息" isShowBack="1">
     <section class="home-wrap">
      xioaxi
     </section>

@@ -1,26 +1,18 @@
 <template>
-  <section class="tab-bar-wrap">
+  <section class="tab-bar-wrap" :style="'padding-top:'+(data.statusBarHeight+data.titleBarHeight)+'px'">
     <!-- 头部 -->
-    <header
-      class="c-header-wrap"
-      :style="'padding-top:'+(data.statusBarHeight+data.titleBarHeight)+'px'"
-    >
-      <section class="hh-header">
-        <section class="status-bar" :style="{height:data.statusBarHeight+'px'}"></section>
-        <section class="title-bar" :style="'height:'+data.titleBarHeight+'px'">
-          <section v-if="isShowBack == '1'" class="hh-nav-back" @click="userInfoFn">
-            <i
-              class="hh-nav-img"
-              style="background-image:url(https://tsfile.labifenqi.com/dm_xcx/tab/home.png)"
-            ></i>
-          </section>
-          <section v-else-if="isShowBack == '2'" class="hh-nav-back" @click="navback">
-            <i class="hh-nav-icon"></i>
-          </section>
-          <div v-else class="hh-nav-back"></div>
-          <div class="hh-title">{{title}}</div>
-          <div class="hh-nav-right"></div>
+    <header class="c-header-wrap">
+      <section class="status-bar" :style="{height:data.statusBarHeight+'px'}"></section>
+      <section class="title-bar" :style="'height:'+data.titleBarHeight+'px'">
+        <section v-if="isShowBack == '1'" class="hh-nav-back g-cen-y search" @click="searchFn">
+          <i class="g-back"></i>
         </section>
+        <section v-else-if="isShowBack == '2'" class="hh-nav-back g-cen-y go-back" @click="navback">
+          <i class="g-back"></i>
+        </section>
+        <div v-else class="hh-nav-back"></div>
+        <div class="hh-title">{{title}}</div>
+        <div class="hh-nav-right"></div>
       </section>
     </header>
     <slot></slot>
@@ -49,12 +41,15 @@ export default {
     title :{
       type:String,
       default:'多美'
+    },
+    isShowBack :{
+      type:String,
+      default:'2'
     }
   },
   data() {
     return {
       userImg: "",
-      isShowBack: "1",
       pagePath:"",
       data: {},
       arr: [
@@ -115,13 +110,22 @@ export default {
         }
       });
     },
+    //tab页面
     tabBarFn(obj) {
       wx.switchTab({
         url:'/'+ obj.pagePath
       });
     },
-    userInfoFn() {},
-    navback() {},
+    //搜索
+    searchFn() {
+      wx.navigateTo({
+        url:'/pages/search/main'
+      })
+    },
+    //返回上一页
+    navback() {
+      wx.navigateBack();
+    },
     //获取当前页
     getCurrentPageUrl(){
       var pages = getCurrentPages()    //获取加载的页面
@@ -131,7 +135,6 @@ export default {
   },
   mounted() {
     this.init();
-    
   }
 };
 </script>
@@ -183,50 +186,57 @@ export default {
     height: 18px;
   }
   .c-header-wrap{
-    .hh-header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #fff;
-      z-index: 99;
-      left: 0;
-      .title-bar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .hh-nav-back {
-          width: 58px;
-          .hh-nav-img {
-            width: 30px;
-            height: 30px;
-            border-radius: 15px;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 100%;
-            display: block;
-            margin-left: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 99;
+    left: 0;
+    .title-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .hh-nav-back {
+        width: 58px;
+        .hh-nav-img {
+          width: 30px;
+          height: 30px;
+          border-radius: 15px;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 100%;
+          display: block;
+          margin-left: 10px;
+        }
+        &.g-cen-y{
+          padding-left: 15px;
+          height: 100%;
+        }
+        &.search{
+          i{
+            width:25px;
+            height: 25px;
+            background-image: url('https://tsfile.labifenqi.com/dm_xcx/icon/search.png');
           }
-          .hh-nav-icon {
-            width: 10.5px;
+        }
+        &.go-back{
+          i{
+            width:18px;
             height: 18px;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 100%;
-            margin-left: 17px;
-            display: block;
+            background-image: url('https://tsfile.labifenqi.com/dm_xcx/icon/jiao-left.png');
           }
         }
-        .hh-title {
-          font-size: 18px;
-          text-align: center;
-          color: #000;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-        .hh-nav-right {
-          width: 58px;
-        }
+      }
+      .hh-title {
+        font-size: 18px;
+        text-align: center;
+        color: #000;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .hh-nav-right {
+        width: 58px;
       }
     }
   }

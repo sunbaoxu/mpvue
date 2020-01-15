@@ -3,7 +3,7 @@
     <section class="user-page-wrap">
       <ul>
         <li class="g-border g-fen-cen">
-          <span class="label icon g-back" :style="{'backgroundImage':'url('+userInfo.avatarUrl+')'}"></span>
+          <span v-if="userInfo.avatarUrl" class="label icon g-back" :style="{'backgroundImage':'url('+userInfo.avatarUrl+')'}"></span>
           <span class="value on">{{userInfo.nickName}}</span>
         </li>
         <li class="g-border g-fen-cen" @click="typeFn('stage')">
