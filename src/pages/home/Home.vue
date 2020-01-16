@@ -2,133 +2,138 @@
   <tab-bar :async="true" title="多美" isShowBack="1">
     <section class="home-wrap">
       <section class="banner-box">
-
+        <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+          <block v-for="(item, i) in bannerArr" :index="index" :key="i">
+            <swiper-item>
+              <image :src="item.url" class="slide-image" mode="aspectFill"/>
+            </swiper-item>
+          </block>
+        </swiper>
       </section>
-      <section class="nav-box">
-        <dl>
-          <dt></dt>
+      <section class="nav-box g-cen-y">
+        <dl @click="navigateToFn('/pages/books/main')">
+          <dt class="g-back baike"></dt>
           <dd>
             <h6>试管百科</h6>
             <p>试管知识，全面科普</p>
           </dd>
         </dl>
+        <i class="xian"></i>
         <dl>
-          <dt></dt>
+          <dt class="g-back huati"></dt>
           <dd>
             <h6>话题广场</h6>
             <p>海量话题，等你来聊</p>
           </dd>
         </dl>
       </section>
-      <ul>
-        <li v-for="(m,i) in arr" :key="i" class="g-border">
-          <navigator :url="m.path" class="list-box">
-            <dl>
-              <dd class="g-col-fen">
-                <h6>{{m.title}}</h6>
-                <p>{{m.time}}</p>
-              </dd>
-              <dt>
-                <image class="g-back" :src="m.imgUrl" ></image>
-              </dt>
-            </dl>
-          </navigator>
-        </li>
-      </ul>
+      <section class="head-text-box">
+        <ul>
+          <li v-for="(m,i) in headArr" :key="i">
+            <navigator :url="m.path" class="list-box">
+              <dl class="g-dis">
+                <dd class="g-text-ove2">{{m.title}}</dd>
+                <dt>
+                  <image class="g-back" :src="m.imgUrl" ></image>
+                </dt>
+              </dl>
+            </navigator>
+            <section class="share-box g-fen-cen-box">
+              <div class="left-box">
+
+              </div>
+              <div class="right-box g-cen-y">
+                <i class="g-back"></i>
+              </div>
+            </section>
+          </li>
+        </ul>
+      </section>
     </section>
   </tab-bar>
 </template>
 
 <script>
 import TabBar from '$common/tab/TabBar'
+import {getNotValiSend} from '../../api/index'
 export default {
   components:{
     TabBar
   },
   data () {
     return {
-      arr:[
+      headArr:[
         {
-          title:'动物园+海洋馆',
-          time:'10月1日',
-          // imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/hyg.jpg',
-          path:'/pages/animal/main'
+          title:'63岁张晨光近照，两个儿子都是试管婴儿，如今还在拍戏养家',
+          path:'/',
+          time:'5个小时前',
+          imgUrl:'https://tsfile.labifenqi.com/dm_xcx/home/head1.png'
         },
-        {
-          title:'颐和园+鸟巢+水立方',
-          time:'10月2日',
-          // imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/yhy.jpg'
-        },
-        {
-          title:'恭王府+北海公园+什刹海',
-          time:'10月3日',
-          // imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/gwf.jpg'
-        },
-        {
-          title:'天安门+故宫',
-          time:'10月4日',
-          // imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/tam.jpg'
-        },
-        {
-          title:'长城+十三陵',
-          time:'10月5日',
-          // imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/cc.jpg'
-        },
-        {
-          title:'大鸭梨+电影',
-          time:'10月6日',
-          // imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/dyl.jpg'
-        },
-        {
-          title:'坐飞机回家',
-          time:'10月7日',
-          // imgUrl:'http://tsfile.labifenqi.com/staticFile/public/demo/wx/fj.jpg'
-        }
+        {title:'你了解试管婴儿吗？试管前期的促排卵，备孕未怀的妈妈该看看',path:'/',time:'2343-443-34',imgUrl:'https://tsfile.labifenqi.com/dm_xcx/home/head2.png'}
+      ],
+      bannerArr:[
+        {url:'https://tsfile.labifenqi.com/dm_xcx/home/banner.png'},
+        {url:'https://tsfile.labifenqi.com/dm_xcx/home/banner1.jpg'},
+        {url:'https://tsfile.labifenqi.com/dm_xcx/home/banner2.jpg'},
+        {url:'https://tsfile.labifenqi.com/dm_xcx/home/banner3.jpg'}
       ]
     }
   },
   methods: {
-    showToast () {
-    },
-    aaa (){
-      wx.request({  // 获取ip
-        url: 'http://ip-api.com/json',
-        success: function (e) {
-          console.log(e,'aaa')
-          // that.setData({
-          //   motto: e.data
-          // })
-        }
-      })
+    navigateToFn(url){
+      wx.navigateTo({url})
     }
   },
   mounted (){
     wx.hideTabBar();
     // this.aaa()
-    // console.log('aaa')
+    // console.log(,'调用api')
+    getNotValiSend().then((res)=>{
+      console.log(res,'返回值')
+    })
   }
 }
 </script>
 <style lang="scss" scoped>
 .home-wrap{
   .banner-box{
-    height: 100px;
-    background: #ececec;
-    margin-bottom: 10px;
+    height: 106px;
+    margin-bottom: 17px;
+    padding:0 15px;
+    .swiper{
+      height: 100%;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    image{
+      width: 100%;
+      height: 100%;
+    }
   }
   .nav-box{
-    display: flex;
+    height: 63px;
+    background: $col-f;
+    margin-bottom: 1px;
+    .xian{
+      height: 31px;
+      width: 0.5px;
+      background-color: $col-dc;
+    }
     dl{
       width: 0;
       flex: 1;
-      padding:10px 15px;
       display: flex;
+      padding-left: 14px;
       dt{ 
-        width: 40px;
-        height: 40px;
-        border-radius: 4px;
-        background: #ececec;
+        width: 31.5px;
+        height: 31.5px;
         margin-right: 10px;
+        &.baike{
+          background-image: url('https://tsfile.labifenqi.com/dm_xcx/home/baike.png');
+        }
+        &.huati{
+          background-image: url('https://tsfile.labifenqi.com/dm_xcx/home/huati.png');
+        }
       }
       dd{
         width: 0;
@@ -137,47 +142,73 @@ export default {
         flex-direction: column;
         justify-content: space-between;
         h6{
-          font-size: 14px;
+          font-size: 16px;
+          line-height: 20px;
+          color: $col-3;
         }
         p{
           color: #999;
           font-size: 12px;
+          line-height: 17px;
         }
       }
     }
   }
-  ul{
-    li{
-      height: 90px;
-      .list-box{
-        height: 100%;
-      }
-      dl{
-        height: 100%;
-        padding:10px;
-        display: flex;
-        box-sizing: border-box;
-        dt{
-          width: 130px;
-          overflow: hidden;
-          position: relative;
-          background: #ececec;
-          margin-left: 10px;
+  .head-text-box{
+    ul{
+      li{
+        padding:14px 14px 10px;
+        margin-bottom: 5.5px;
+        background: $col-f;
+        &:last-child{
+          margin-bottom: 0;
         }
-        dd{
-          width: 0;
-          flex: 1;
-          padding-left: 15px;
-          padding-top:6px;
-          padding-bottom: 6px;
-          p{
+        dl{
+          height: 100%;
+          margin-bottom: 10px;
+          dt{
+            width: 112px;
+            height: 73px;
+            margin-left: 15px;
+            border-radius: 4px;
+            image{
+              height: 100%;
+              width: 100%;
+            }
+          }
+          dd{
+            width: 0;
+            flex: 1;
+            font-size: 17px;
+            line-height: 24px;
+            color: $col-1a;
+            -webkit-line-clamp: 3;
+          }
+        }
+        .share-box{
+          height: 30px;
+          &>div{
+            height: 100%;
+          }
+          .left-box{
+            line-height: 30px;
+            color: $col-9;
             font-size: 12px;
-            color: #999;
+            width: 0;
+            flex: 1;
+          }
+          .right-box{
+            i{
+              width: 19px;
+              height: 5px;
+              background-image: url('https://tsfile.labifenqi.com/dm_xcx/icon/dian.png')
+            }
           }
         }
       }
     }
   }
+  
 }
 </style>
 

@@ -47,6 +47,7 @@ let baseWebpackConfig = {
     alias: {
       'vue': 'mpvue',
       '@': resolve('src'),
+      '$api': resolve('src/api'),
       '$common': resolve('src/common')
     },
     symlinks: false,

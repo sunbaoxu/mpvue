@@ -1,15 +1,16 @@
 {
   "pages": [
+    "pages/home/main",
     "pages/user/main",
     "pages/user/userPage/main",
     "pages/news/main",
     "pages/add/main",
-    "pages/home/main",
     "pages/login/main",
     "pages/animal/main",
     "pages/video/main",
     "pages/update/main",
-    "pages/search/main"
+    "pages/search/main",
+    "pages/books/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
