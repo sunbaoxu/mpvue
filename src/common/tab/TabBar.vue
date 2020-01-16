@@ -143,6 +143,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .tab-bar-wrap {
+  padding-bottom: 53px;
   .c-tabar-warp {
     height: 53px;
     position: fixed;

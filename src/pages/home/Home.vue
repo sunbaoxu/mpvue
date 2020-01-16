@@ -27,7 +27,7 @@
           </dd>
         </dl>
       </section>
-      <section class="head-text-box">
+      <section class="circle-box type1">
         <ul>
           <li v-for="(m,i) in headArr" :key="i">
             <navigator hover-class="none" url="/pages/article/detail/main" class="list-box">
@@ -50,6 +50,29 @@
             </section>
           </li>
         </ul>
+      </section>
+      <section class="circle-box type2">
+        <h6 class="g-text-ove1">三代试管如何孕育健康宝宝,afsdasd阿斯顿发斯蒂芬阿斯蒂芬</h6>
+        <ul class="g-fen-x">
+          <li v-for="(m,i) in articleArr" :key="i">
+            <navigator 
+              hover-class="none" 
+              url="/pages/article/detail/main" 
+              class="img g-back-cover"
+              :style="'background-image:url('+m+')'"
+            ></navigator>
+          </li>
+        </ul>
+        <section class="share-box g-fen-cen-box">
+          <div class="left-box g-cen-y">
+            <span>阿凡达</span>
+            <span>2.3k浏览</span>
+            <span>2323-23-23</span>
+          </div>
+          <div class="right-box g-cen-y">
+            <i class="g-back"></i>
+          </div>
+        </section>
       </section>
     </section>
   </tab-bar>
@@ -85,6 +108,11 @@ export default {
         {url:'https://tsfile.labifenqi.com/dm_xcx/home/banner1.jpg'},
         {url:'https://tsfile.labifenqi.com/dm_xcx/home/banner2.jpg'},
         {url:'https://tsfile.labifenqi.com/dm_xcx/home/banner3.jpg'}
+      ],
+      articleArr:[
+        'https://tsfile.labifenqi.com/dm_xcx/home/cr1.png',
+        'https://tsfile.labifenqi.com/dm_xcx/home/cr2.png',
+        'https://tsfile.labifenqi.com/dm_xcx/home/cr3.png'
       ]
     }
   },
@@ -101,6 +129,9 @@ export default {
   },
   mounted (){
     wx.hideTabBar();
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   }
 }
 </script>
@@ -163,77 +194,94 @@ export default {
       }
     }
   }
-  .head-text-box{
-    ul{
-      li{
-        padding:14px 14px 10px;
-        margin-bottom: 5.5px;
-        background: $col-f;
-        &:last-child{
-          margin-bottom: 0;
-        }
-        dl{
-          height: 100%;
-          margin-bottom: 10px;
-          dt{
-            width: 112px;
-            height: 73px;
-            margin-left: 15px;
-            border-radius: 4px;
-            image{
-              height: 100%;
-              width: 100%;
-            }
-          }
-          dd{
-            width: 0;
-            flex: 1;
-            font-size: 17px;
-            line-height: 24px;
-            color: $col-1a;
-            -webkit-line-clamp: 3;
-          }
-        }
-        .share-box{
-          height: 30px;
-          &>div{
+  .circle-box{
+    &.type1{
+      ul{
+        li{
+          padding:14px 14px 10px;
+          margin-bottom: 5.5px;
+          background: $col-f;
+          dl{
             height: 100%;
-          }
-          .left-box{
-            line-height: 30px;
-            color: $col-9;
-            font-size: 12px;
-            width: 0;
-            flex: 1;
-            span{
-              margin-right: 15px;
-              &.g-cen-y{
-                &::before{
-                  content: "热";
-                  height: 19px;
-                  border:1px solid $col-red1;
-                  border-radius: 3px;
-                  line-height: 19px;
-                  width: 25px;
-                  text-align: center;
-                  color: $col-red1;
-                  margin-right: 7.5px;
-                }
+            margin-bottom: 10px;
+            dt{
+              width: 112px;
+              height: 73px;
+              margin-left: 15px;
+              border-radius: 4px;
+              image{
+                height: 100%;
+                width: 100%;
               }
             }
-          }
-          .right-box{
-            i{
-              width: 19px;
-              height: 5px;
-              background-image: url('https://tsfile.labifenqi.com/dm_xcx/icon/dian.png')
+            dd{
+              width: 0;
+              flex: 1;
+              font-size: 17px;
+              line-height: 24px;
+              color: $col-1a;
+              -webkit-line-clamp: 3;
             }
           }
         }
       }
     }
+    &.type2{
+      padding:2px 15px 10px;
+      background-color: $col-f;
+      margin-bottom: 6px;
+      &>h6{
+        font-size: 17px;
+        line-height: 44px;
+        color: $col-1a;
+      }
+      ul{
+        margin-bottom: 10px;
+        li{
+          .img{
+            width: 112px;
+            height: 112px;
+          }
+        }
+      }
+    }
+    .share-box{
+      height: 30px;
+      &>div{
+        height: 100%;
+      }
+      .left-box{
+        line-height: 30px;
+        color: $col-9;
+        font-size: 12px;
+        width: 0;
+        flex: 1;
+        span{
+          margin-right: 15px;
+          &.g-cen-y{
+            &::before{
+              content: "热";
+              height: 19px;
+              border:1px solid $col-red1;
+              border-radius: 3px;
+              line-height: 19px;
+              width: 25px;
+              text-align: center;
+              color: $col-red1;
+              margin-right: 7.5px;
+            }
+          }
+        }
+      }
+      .right-box{
+        i{
+          width: 19px;
+          height: 5px;
+          background-image: url('https://tsfile.labifenqi.com/dm_xcx/icon/dian.png')
+        }
+      }
+    }
   }
-  
 }
 </style>
 
