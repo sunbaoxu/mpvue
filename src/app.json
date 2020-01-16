@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/article/circle/main",
     "pages/home/main",
     "pages/article/detail/main",
     "pages/user/main",
@@ -9,7 +10,6 @@
     "pages/login/main",
     "pages/animal/main",
     "pages/video/main",
-    "pages/article/circle/main",
     "pages/search/main",
     "pages/books/main"
   ],
