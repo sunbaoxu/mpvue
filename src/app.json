@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/article/detail/main",
     "pages/home/main",
     "pages/user/main",
     "pages/user/userPage/main",
@@ -8,7 +9,7 @@
     "pages/login/main",
     "pages/animal/main",
     "pages/video/main",
-    "pages/update/main",
+    "pages/article/circle/main",
     "pages/search/main",
     "pages/books/main"
   ],
@@ -31,7 +32,7 @@
       },
       {
         "text": "圈子",
-        "pagePath":"pages/update/main",
+        "pagePath":"pages/article/circle/main",
         "iconPath":"/static/tabs/update.png",
         "selectedIconPath":"/static/tabs/update1.png"
       },

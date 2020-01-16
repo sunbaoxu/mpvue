@@ -1,5 +1,5 @@
 <template>
-  <tab-bar :async="true" isShowBack="1">
+  <tab-bar title="圈子" :async="true" isShowBack="1">
     <section class="home-wrap">
      圈子
     </section>

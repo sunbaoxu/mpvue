@@ -51,7 +51,10 @@ export default {
     return {
       userImg: "",
       pagePath:"",
-      data: {},
+      data: {
+        statusBarHeight:20,
+        titleBarHeight :24
+      },
       arr: [
         {
           text: "首页",
@@ -61,7 +64,7 @@ export default {
         },
         {
           text: "圈子",
-          pagePath: "pages/update/main",
+          pagePath: "pages/article/circle/main",
           iconPath: "/static/tabs/update.png",
           selectedIconPath: "/static/tabs/update1.png"
         },
